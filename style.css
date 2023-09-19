@@ -1,0 +1,58 @@
+body {
+    font-family: 'Arial, sans-serif';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-section {
+    margin-bottom: 10px;
+}
+
+.input-section label {
+    margin-right: 10px;
+}
+
+.timer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#mode {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#timer {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#start-button {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#stop-button {
+    background-color: #dc3545;
+    color: #fff;
+}

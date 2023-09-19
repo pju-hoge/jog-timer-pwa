@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Jogging Timer App</title>
+</head>
+<body>
+<div class="container">
+    <div class="input-section">
+        <label for="run-time">Run Time (minutes): </label>
+        <input type="number" id="run-time" min="1" max="60">
+    </div>
+    <div class="input-section">
+        <label for="walk-time">Walk Time (minutes): </label>
+        <input type="number" id="walk-time" min="1" max="60">
+    </div>
+    <button id="start-button">Start</button>
+    <div class="timer-section">
+        <div id="mode">Ready</div>
+        <div id="timer">00:00</div>
+    </div>
+    <button id="stop-button">Stop</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
