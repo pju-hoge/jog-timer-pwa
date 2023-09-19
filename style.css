@@ -1,58 +1,77 @@
-body {
-    font-family: 'Arial, sans-serif';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif; /* Updated to only include sans-serif */
     background-color: #f0f0f0;
 }
 
 .container {
-    background-color: #fff;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
     padding: 20px;
-    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .input-section {
-    margin-bottom: 10px;
-}
-
-.input-section label {
-    margin-right: 10px;
-}
-
-.timer-section {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0;
+    margin-bottom: 20px;
+}
+
+.input-section label {
+    font-size: 18px;
+}
+
+.input-section input {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.timer-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 #mode {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 32px; /* Increased font size */
+    color: #333; /* Added color for better visibility */
+    margin-right: 20px;
 }
 
 #timer {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 32px; /* Increased font size */
+    color: #d20f0f; /* Added color for better visibility */
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
+
+#start-stop-button {
+    padding: 15px 30px;
+    font-size: 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-}
-
-#start-button {
     background-color: #28a745;
     color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-#stop-button {
-    background-color: #dc3545;
-    color: #fff;
-}

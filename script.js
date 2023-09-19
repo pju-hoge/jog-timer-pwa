@@ -1,8 +1,17 @@
 let runTime, walkTime;
 let isRunning = true;
 let interval;
+let isTimerActive = false;
 
-document.getElementById('start-button').addEventListener('click', () => {
+document.getElementById('start-stop-button').addEventListener('click', () => {
+    if (isTimerActive) {
+        stopTimer();
+    } else {
+        startTimer();
+    }
+});
+
+function startTimer() {
     runTime = parseInt(document.getElementById('run-time').value) * 60;
     walkTime = parseInt(document.getElementById('walk-time').value) * 60;
     
@@ -11,20 +20,16 @@ document.getElementById('start-button').addEventListener('click', () => {
         return;
     }
 
+    document.getElementById('run-time').disabled = true; // Disable the input fields
+    document.getElementById('walk-time').disabled = true; // Disable the input fields
+
     document.getElementById('mode').textContent = 'Running';
-    playSound(isRunning); // Play the running sound when the timer starts
-    startTimer(runTime);
-});
+    playSound(isRunning);
+    isTimerActive = true;
+    document.getElementById('start-stop-button').textContent = 'Stop';
+    document.getElementById('start-stop-button').style.backgroundColor = '#dc3545';
 
-
-document.getElementById('stop-button').addEventListener('click', () => {
-    clearInterval(interval);
-    document.getElementById('mode').textContent = 'Stopped';
-    document.getElementById('timer').textContent = '00:00';
-});
-
-function startTimer(duration) {
-    let timer = duration;
+    let timer = runTime;
     interval = setInterval(() => {
         let minutes = parseInt(timer / 60, 10);
         let seconds = parseInt(timer % 60, 10);
@@ -42,6 +47,24 @@ function startTimer(duration) {
         }
     }, 1000);
 }
+
+function stopTimer() {
+    clearInterval(interval);
+    document.getElementById('mode').textContent = 'Stopped';
+    document.getElementById('timer').textContent = '00:00';
+    isTimerActive = false;
+    document.getElementById('start-stop-button').textContent = 'Start';
+    document.getElementById('start-stop-button').style.backgroundColor = '#28a745';
+    playStopSound(); // Play the stop sound when the "Stop" button is pressed
+    document.getElementById('run-time').disabled = false; // Enable the input fields
+    document.getElementById('walk-time').disabled = false; // Enable the input fields
+}
+
+function playStopSound() {
+    let sound = new Audio('stop-sound.mp3');
+    sound.play();
+}
+
 
 function playSound(isRunning) {
     let sound = new Audio(isRunning ? 'run-sound.mp3' : 'walk-sound.mp3');
