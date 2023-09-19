@@ -1,6 +1,5 @@
 const CACHE_NAME = 'jog-timer-cache-v1';
 const urlsToCache = [
-  '/',
   '/index.html',
   '/style.css',
   '/script.js',
