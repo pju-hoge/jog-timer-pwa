@@ -3,14 +3,16 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: sans-serif; /* Updated to only include sans-serif */
+    font-family: sans-serif;
     background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     width: 90%;
     max-width: 400px;
-    margin: auto;
     padding: 20px;
     box-sizing: border-box;
     background-color: #fff;
