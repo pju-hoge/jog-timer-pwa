@@ -2,6 +2,8 @@ let runTime, walkTime;
 let isRunning = true;
 let interval;
 let isTimerActive = false;
+let audioContext;
+
 
 document.getElementById('start-stop-button').addEventListener('click', () => {
     if (isTimerActive) {
@@ -66,7 +68,16 @@ function playStopSound() {
 }
 
 
+
 function playSound(isRunning) {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
     let sound = new Audio(isRunning ? 'run-sound.mp3' : 'walk-sound.mp3');
-    sound.play();
+    sound.addEventListener('canplaythrough', () => {
+        let source = audioContext.createMediaElementSource(sound);
+        source.connect(audioContext.destination);
+        sound.play();
+    });
 }
